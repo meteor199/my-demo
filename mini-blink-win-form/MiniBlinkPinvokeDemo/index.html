@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta charset="GBK">
+    <title>
+        测试页面
+    </title>
+    <script>
+        Console_WriteLine("测试调用后台方法" + Date.parse(new Date()))
+
+        alert("hhaxx是");
+
+        //var testJson = '{ "name": "he" }';
+
+        function testInt() {
+            return 1213;
+        }
+        function testBool() {
+            return true;
+        }
+
+        function testString() {
+            return "123";
+        }
+        var res = jsReturnValueTest("2017");
+        //var xc =JsGetValue;
+        Console_WriteLine(res);
+        //Console_WriteLine2(1231511, "第二个参数");
+        setTimeout(function () {
+            //testJson.name = "C#";
+            testJson = '{ "name": "he11111111111111111111111" }';
+            console.log("testJson:" + testJson);
+        }, 2000);
+
+
+        var sleep = function (time) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve();
+                }, time);
+            })
+        };
+        function asyncTest(str) {
+         Console_WriteLine("async down   ########" +unescape(str));
+        }
+        var start = async function () {
+            // 在这里使用起来就像同步代码那样直观
+            console.log('start');
+            alert(1);
+            DOTaskWithAsync("前台传值到后台");
+            alert(2);
+            console.log('end');
+        };
+
+        start();
+    
+    </script>
+</head>
+<!--设置margin才能显示阴影-->
+<body style="margin:8px;">
+    documen
+    <div>
+        <a href="https://files.cnblogs.com/files/xt_hjl/123.rar">下载测试</a>
+        <a href="https://www.baidu.com/" target="_blank">百度一下</a>
+    </div>
+</body>
+
+</html>

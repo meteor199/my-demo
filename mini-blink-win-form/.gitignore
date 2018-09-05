@@ -1,0 +1,7 @@
+/.vs
+/MiniBlinkPinvoke/obj
+/MiniBlinkPinvoke/bin
+/MiniBlinkPinvokeDemo/obj
+/MiniBlinkPinvokeDemo/Bin
+/lib/*
+!/lib/.gitkeep
