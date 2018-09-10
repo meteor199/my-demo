@@ -82,7 +82,7 @@ namespace Aga.Controls.Tree.NodeControls
 			: base(type)
 		{
 			_types = new Type[] { typeof(NodeTextBox), typeof(NodeComboBox), typeof(NodeCheckBox),
-				typeof(NodeStateIcon), typeof(NodeIcon)  };
+				typeof(NodeStateIcon), typeof(NodeIcon) ,typeof(NodeProcessBar) };
 		}
 
 		protected override System.Type[] CreateNewItemTypes()

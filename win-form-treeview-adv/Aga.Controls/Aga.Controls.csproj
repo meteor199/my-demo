@@ -62,7 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tree\NodeControls\NodeProcess.cs">
+    <Compile Include="Tree\NodeControls\NodeProcessBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tree\TextHelper.cs" />
