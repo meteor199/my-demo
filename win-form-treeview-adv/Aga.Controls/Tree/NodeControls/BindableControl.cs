@@ -61,7 +61,7 @@ namespace Aga.Controls.Tree.NodeControls
 			return null;
 		}
 
-		private PropertyInfo GetPropertyInfo(TreeNodeAdv node)
+		protected PropertyInfo GetPropertyInfo(TreeNodeAdv node)
 		{
 			if (node.Tag != null && !string.IsNullOrEmpty(DataPropertyName))
 			{

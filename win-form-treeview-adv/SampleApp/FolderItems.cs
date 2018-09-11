@@ -57,6 +57,31 @@ namespace SampleApp
             get { return _process; }
             set { _process = value; }
         }
+
+        public Color ProcessColor
+        {
+            get
+            {
+                if (_process > 80)
+                {
+                    return Color.Red;
+                }
+
+                if (_process > 60)
+                {
+                    return Color.Blue;
+                }
+
+                if (_process > 20)
+                {
+                    return Color.Aqua;
+                }
+
+                return Color.AntiqueWhite;
+            }
+        }
+
+        public bool ProcessHide { get; set; }
     }
 
     public class RootItem : BaseItem

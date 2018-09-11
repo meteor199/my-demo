@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Aga.Controls.Tree.NodeControls
@@ -32,6 +33,9 @@ namespace Aga.Controls.Tree.NodeControls
             }
         }
 
+        public string ColorPerproty { get; set; }
+        public string HidePerproty { get; set; }
+
         #endregion
 
         public NodeProcessBar()
@@ -55,11 +59,17 @@ namespace Aga.Controls.Tree.NodeControls
 
             if (context.CurrentEditorOwner == this && node == Parent.CurrentNode)
                 return;
-            DrawProcess(context, v);
+            if (IsHide(node))
+            {
+                return;
+            }
+
+            var color = GetColor(node);
+            DrawProcess(context, v, color);
             Rectangle clipRect = context.Bounds;
             Brush text = SystemBrushes.ControlText;
 
-            string label = v.ToString("F1")+"%";
+            string label = v.ToString("F1") + "%";
             Size s = GetLabelSize(label);
             Rectangle focusRect = new Rectangle(clipRect.X, clipRect.Y, s.Width, clipRect.Height);
 
@@ -90,12 +100,14 @@ namespace Aga.Controls.Tree.NodeControls
             }
 
             DrawBorder(context);
-            //_format.Alignment = TextHelper.TranslateAligment(TextAlign);
+            _format.Alignment = TextHelper.TranslateAligment(HorizontalAlignment.Center);
             //_format.Trimming = Trimming;
+            clipRect.X += 5;
+            clipRect.Y += 2;
             context.Graphics.DrawString(label, context.Font, text, clipRect, _format);
         }
 
-        protected void DrawProcess(DrawContext context, double v)
+        protected void DrawProcess(DrawContext context, double v, Color color)
         {
             var width = context.Bounds.Width - 4;
             width = Convert.ToInt32(width * v / width);
@@ -104,7 +116,46 @@ namespace Aga.Controls.Tree.NodeControls
                 width,
                 context.Bounds.Height - 4);
 
-            context.Graphics.FillRectangle(new SolidBrush(Color.Red), r);
+            context.Graphics.FillRectangle(new SolidBrush(color), r);
+        }
+
+        private Color GetColor(TreeNodeAdv node)
+        {
+            if (string.IsNullOrEmpty(ColorPerproty))
+            {
+                return Color.Aquamarine;
+            }
+
+            PropertyInfo pi = GetPropertyInfo(node, ColorPerproty);
+            if (pi != null && pi.CanRead)
+                return (Color) pi.GetValue(node.Tag, null);
+            else
+                return Color.Aquamarine;
+        }
+
+        private bool IsHide(TreeNodeAdv node)
+        {
+            if (string.IsNullOrEmpty(HidePerproty))
+            {
+                return false;
+            }
+
+            PropertyInfo pi = GetPropertyInfo(node, HidePerproty);
+            if (pi != null && pi.CanRead)
+                return (bool) pi.GetValue(node.Tag, null);
+            else
+                return true;
+        }
+
+        protected PropertyInfo GetPropertyInfo(TreeNodeAdv node, string prpertyName)
+        {
+            if (node.Tag != null && !string.IsNullOrEmpty(prpertyName))
+            {
+                Type type = node.Tag.GetType();
+                return type.GetProperty(prpertyName);
+            }
+
+            return null;
         }
 
         protected void DrawBorder(DrawContext context)

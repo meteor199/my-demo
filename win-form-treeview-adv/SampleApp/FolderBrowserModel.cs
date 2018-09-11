@@ -29,6 +29,7 @@ namespace SampleApp
             while (_itemsToRead.Count > 0)
             {
                 BaseItem item = _itemsToRead[0];
+                item.ProcessHide = true;
                 _itemsToRead.RemoveAt(0);
                 item.Process = (new Random()).Next(0, 100);
 
@@ -52,6 +53,7 @@ namespace SampleApp
                     {
                         item.Icon = new Bitmap(item.ItemPath);
                     }
+                    item.ProcessHide = false;
                 }
 
                 _worker.ReportProgress(0, item);

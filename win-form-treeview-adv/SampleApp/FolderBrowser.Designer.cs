@@ -52,8 +52,8 @@ namespace SampleApp
             treeColumn2.Width = 100;
             treeColumn3.Header = "Date";
             treeColumn3.Width = 120;
-		    treeColumn4.Header = "Process";
-		    treeColumn4.Width = 120;
+            treeColumn4.Header = "Process";
+            treeColumn4.Width = 120;
             this._treeView.Columns.Add(treeColumn1);
             this._treeView.Columns.Add(treeColumn2);
             this._treeView.Columns.Add(treeColumn3);
@@ -61,6 +61,7 @@ namespace SampleApp
             this._treeView.Cursor = System.Windows.Forms.Cursors.Default;
             this._treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this._treeView.DragDropMarkColor = System.Drawing.Color.Black;
+            this._treeView.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._treeView.FullRowSelect = true;
             this._treeView.LineColor = System.Drawing.SystemColors.ControlDark;
             this._treeView.LoadOnDemand = true;
@@ -87,23 +88,28 @@ namespace SampleApp
             // 
             this._name.DataPropertyName = "Name";
             this._name.EditEnabled = true;
+            this._name.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // _size
             // 
             this._size.Column = 1;
             this._size.DataPropertyName = "Size";
+            this._size.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this._size.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // _date
             // 
             this._date.Column = 2;
             this._date.DataPropertyName = "Date";
+            this._date.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             // 
             // _process
             // 
+            this._process.ColorPerproty = "ProcessColor";
             this._process.Column = 3;
             this._process.DataPropertyName = "Process";
-            this._process.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this._process.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this._process.HidePerproty = "ProcessHide";
             // 
             // FolderBrowser
             // 

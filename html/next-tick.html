@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="header" @click="handleClick">{{a}}</div>
+    </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            a: 1
+        },
+        methods: {
+            handleClick: function () {
+                this.a = 2;
+                this.nextTick(() => {
+                    console.log('nt', this.a);
+                })
+
+                this.$nextTick(() => {
+                    // 现在界面上才是 2
+                    console.log('nextTick', document.getElementById('header').innerText);
+                })
+                for (var i = 1; i < 100000; i++) {
+                    console.log(-1);
+                }
+                // 现在界面上还是 1
+                console.log(document.getElementById('header').innerText);
+            },
+        }
+    })
+</script>
+
+</html>
