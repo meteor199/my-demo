@@ -1,0 +1,22 @@
+{
+  "name": "vscode-debug-without-compiling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.2",
+    "@types/chai": "3.5.1",
+    "@types/mocha": "2.2.41",
+    "chai": "3.5.0",
+    "mocha": "3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
