@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "dom",
+            "es2015"
+          ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "lib",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./src/**/*.ts"
+    ],
+    "compileOnSave": false
+}
